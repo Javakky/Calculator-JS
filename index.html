@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>App02_aki_</title>
+    <link href="css/default.css" rel="stylesheet" />
+    <script src="main.js"></script>
+
+    <script type="text/javascript">
+        function keydown(){
+            if(window.event.keyCode==13)getButton1();
+            if(window.event.keyCode==37)document.getElementById("formulaid").selectionStart--;
+            if(window.event.keyCode==39)document.getElementById("formulaid").selectionStart++;
+        }
+    </script>
+</head>
+<body onkeydown="keydown();">
+    計算式を入力<br />
+
+    <script>
+
+        function push(str){
+            var place = document.getElementById("formulaid").selectionStart;
+            var s = document.getElementById("formulaid").value;
+            s = s.slice(0, place) + str + s.slice(place, s.length);
+            document.getElementById("formulaid").value = s;
+            document.getElementById("formulaid").selectionStart = place + String(str).length;
+        }
+
+        function allcl(){
+            document.getElementById("formulaid").value = "";
+        }
+
+        function onecl(){
+            var place = document.getElementById("formulaid").selectionStart;
+            var txt = document.getElementById("formulaid").value;
+            txt = txt.substr(0, place - 1) + txt.substr(place, txt.length-1);
+            document.getElementById("formulaid").value = txt;
+            document.getElementById("formulaid").selectionStart = place - 1;
+            
+        }
+
+    </script>
+
+    <form name="f">
+        <input type="text" name="formula" id="formulaid" value="" />
+        <input type="button" value="計算" onclick="getButton1();"> <br />
+        <input type="button" name="7" value="7" onclick="push(7);" />
+        <input type="button" name="8" value="8" onclick="push(8);" />
+        <input type="button" name="9" value="9" onclick="push(9);" />
+        <input type="button" name="+" value="+" onclick="push('+');" />
+        <input type="button" name="(" value="(" onclick="push('(');" />
+        <input type="button" name=")" value=")" onclick="push(')');" />
+        <input type="button" name="sin" value="sin" onclick="push('sin(');" />
+        <input type="button" name="asin" value="asin" onclick="push('asin(');" />
+        <input type="button" name="gcd" value="gcd" onclick="push('gcd(');" />
+        <input type="button" name="part" value="part" onclick="push('part(');" />
+        <input type="button" name="fib" value="fib" onclick="push('fib(');" /> <br />
+        <input type="button" name="4" value="4" onclick="push(4);" />
+        <input type="button" name="5" value="5" onclick="push(5);" />
+        <input type="button" name="6" value="6" onclick="push(6);" />
+        <input type="button" name="-" value="-" onclick="push('-');" />
+        <input type="button" name="%" value="%" onclick="push('%');" />
+        <input type="button" name="^" value="^" onclick="push('^');" />
+        <input type="button" name="cos" value="cos" onclick="push('cos(');" />
+        <input type="button" name="acos" value="acos" onclick="push('acos(');" />
+        <input type="button" name="lcm" value="lcm" onclick="push('lcm(');" />
+        <input type="button" name="mobius" value="mobius" onclick="push('mobius(');" /> <br />
+        <input type="button" name="1" value="1" onclick="push(1);" />
+        <input type="button" name="2" value="2" onclick="push(2);" />
+        <input type="button" name="3" value="3" onclick="push(3);" />
+        <input type="button" name="*" value="*" onclick="push('*');" />
+        <input type="button" name="!" value="!" onclick="push('!');" />
+        <input type="button" name="|" value="|" onclick="push('|');" />
+        <input type="button" name="tan" value="tan" onclick="push('tan(');" />
+        <input type="button" name="atan" value="atan" onclick="push('atan(');" />
+        <input type="button" name="e" value="e" onclick="push('e');" />
+        <input type="button" name="pow" value="pow" onclick="push('pow(');" />
+        <input type="button" name="floor" value="floor" onclick="push('floor(');" /> <br />
+        <input type="button" name="√" value="√" onclick="push('√');" />
+        <input type="button" name="0" value="0" onclick="push(0);" />
+        <input type="button" name="," value="," onclick="push(',');" />
+        <input type="button" name="/" value="/" onclick="push('/');" />
+        <input type="button" name="." value="." onclick="push('.');" />
+        <input type="button" name="π" value="π" onclick="push('π');" />
+        <input type="button" name="hyper" value="hyper" onclick="push('hyper(');" />
+        <input type="button" name="abs" value="abs" onclick="push('abs(');" />
+        <input type="button" name="log" value="log" onclick="push('log(');" />
+        <input type="button" name="ln" value="ln" onclick="push('ln(');" />
+        <input type="button" name="ceil" value="ceil" onclick="push('ceil(');" /> <br />
+        <input type="button" name="clear" value="clear" onclick="allcl();" />
+        <input type="button" name="back" value="back" onclick="onecl();" /> <br />
+
+    </form>
+
+</body>
+</html>
